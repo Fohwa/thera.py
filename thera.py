@@ -25,5 +25,3 @@ while 1:
      print("actually this is 100% true")
  else:
      print("Whatever, I cant help you!")
-
-#trying out pushing form vscode
