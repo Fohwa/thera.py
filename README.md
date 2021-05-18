@@ -14,6 +14,9 @@ But in the future I want to add some features:
 
 ## In progress
 
-Planned are some kind of text analysing.
+Planned is some kind of text analysing.
+This is already added as a ptototyp:
+It will work with the words 'help', 'hello', 'hi' and 'hey'
+
 This will generate insults based on the context of the question
 Second would be a better user interface, like a gui.
