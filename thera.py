@@ -5,7 +5,7 @@ import pyttsx3 #for text to speech to make it more terrible
 # Alternative could be choosen to use lines with words missing, that will be added by another category, but this will be difficult
 
 
-def speak(x):
+def speak(x): #herlper function to speak a string
 
    #initialise
    engine = pyttsx3.init()
@@ -18,15 +18,19 @@ def speak(x):
    engine.say(x)
    engine.runAndWait()
 
+#introduction
+print("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin!")
+speak("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin! So now tell me what the fuck is wrong with you")
 
-class category:
+class category: # layout for keywords
    linecount = 10
 
    line = ["Fuck you, idiot!", "Have you tried alcohol?",
    "Aha, I have the feeling you feel alone", "Mmmmh, I dont care",
    "Is this really the way you feel?", "I am the opinion you are insane",
    "This is the way!", "yeah, no", "actually this is 100% true",
-   "Whatever, I cant help you!"]
+   "Whatever, I cant help you!", "Please, just let me alone!",
+   "I really dont want to see your ugly face", "you are worthless"]
 
 normal = category()
 
@@ -43,7 +47,7 @@ while 1:
     "I will not help you", "Are you weak? You need help?",
     "Help is just an excuse", "I need help, too. Will you help me?", ]
 
-    print(help.line[i])
+    print(help.line[i] + "\n")
     speak(help.line[i])
 
     
@@ -56,13 +60,13 @@ while 1:
     "Hey, just kiding, I dont like you!", "Hello and bye",
     "yeah, lets skip over the small talk part", ]
     
-    print(hi.line[i])
+    print(hi.line[i] + "\n")
     speak(hi.line[i])
 
  else:
-  i = random.randrange(1, 10)
+  i = int(random.uniform(1, 10))
 
-  print(normal.line[i])
+  print(normal.line[i] + "\n")
   speak(normal.line[i])
 
 
