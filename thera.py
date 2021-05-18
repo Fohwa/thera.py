@@ -1,5 +1,6 @@
 import random
 import pyttsx3 #for text to speech to make it more terrible
+from playsound import playsound
 
 # the idea is to generate bools and categories. The bools score for the individual categories and the one with highest score will be chossen
 # Alternative could be choosen to use lines with words missing, that will be added by another category, but this will be difficult
@@ -40,6 +41,14 @@ while 1:
  if statement == "stop":
     break
 
+ elif "comrade" in statement: #meme for the comrades
+    
+    print("Sovetskoye tsarstvo vosstanet yeshche raz. Tak chto vse nashi lyudi mogut zhit' pod krasnym solntsem, tovarishch\n")
+    speak("Sovetskoye tsarstvo vosstanet communisme yeshche raz. Putin Tak chto vse nashi vodga lyudi mogut zhit' Gorbatschof pod krasnym solntsem, comrade")
+    
+    #play sound
+    playsound("D:/folder/sound/comrade.mp3")
+
  elif "help" in statement:
     i = random.randrange(1, 5)
     help = category()
@@ -62,6 +71,11 @@ while 1:
     
     print(hi.line[i] + "\n")
     speak(hi.line[i])
+
+ elif "?" in statement:
+    
+    print("This is a stupid question\n")
+    speak("This is a stupid question")
 
  else:
   i = int(random.uniform(1, 10))
