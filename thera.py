@@ -49,6 +49,11 @@ while 1:
     #play sound
     playsound("D:/folder/sound/comrade.mp3")
 
+ elif "hello world" in statement:
+    
+    print("Fuck off you fucking nerd\n")
+    speak("Fuck off you fucking nerd")
+
  elif "help" in statement:
     i = random.randrange(1, 5)
     help = category()
@@ -76,6 +81,7 @@ while 1:
     
     print("This is a stupid question\n")
     speak("This is a stupid question")
+
 
  else:
   i = int(random.uniform(1, 10))
