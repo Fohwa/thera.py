@@ -4,6 +4,7 @@ import pyttsx3 #for text to speech to make it more terrible
 # the idea is to generate bools and categories. The bools score for the individual categories and the one with highest score will be chossen
 # Alternative could be choosen to use lines with words missing, that will be added by another category, but this will be difficult
 
+
 def speak(x):
 
    #initialise
@@ -32,7 +33,10 @@ normal = category()
 while 1:
  statement = input("What is your problem: ")
 
- if "help" in statement:
+ if statement == "stop":
+    break
+
+ elif "help" in statement:
     i = random.randrange(1, 5)
     help = category()
     help.line = ["Nobody can help you",
