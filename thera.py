@@ -54,7 +54,7 @@ while 1:
     hi = category()
     hi.line = ["You can go away right away!", "Fuck off, nobody likes you",
     "Hey, just kiding, I dont like you!", "Hello and bye",
-    "yeah, lets skip over the samll talk part", ]
+    "yeah, lets skip over the small talk part", ]
     
     print(hi.line[i])
     speak(hi.line[i])
