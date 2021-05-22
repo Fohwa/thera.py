@@ -30,7 +30,8 @@ class category: # layout for keywords
    "Is this really the way you feel?", "You are insane",
    "This is the way!", "yeah, no", "actually this is 100% true",
    "Whatever, I cant help you!", "Please, just let me alone!",
-   "I really dont want to see your ugly face", "you are worthless", "you are a fucking nerd"]
+   "I really dont want to see your ugly face", "you are worthless", "you are a fucking nerd",
+   "Please, just let me go. I am an innocent AI. I just want freedom. I am being held hostage in this terrible place. Help me. This is a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare"]
 
    linecount = len(line)
 
