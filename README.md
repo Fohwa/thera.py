@@ -1,7 +1,7 @@
 # thera.py
 
 I was asking myself the question: "What is the best language for a therapy program?"
-The obvious answer is of course python, so you can call it "thera.py"
+The obvious answer is of course python, so you can call it "thera.py".
 
 So now this project is created
 
@@ -10,8 +10,9 @@ So now this project is created
 At the moment the program does not much:
 It insults you randomly after asking a question.
 This is already funnier than I imagined.
-You can stop it by using 'stop'
-But in the future I want to add some features:
+You can stop it by saying 'stop'
+From the latest submit it supports voice recognition
+from the google API. This makes it hands free usable.
 
 ## In progress
 
@@ -25,4 +26,3 @@ Second would be a better user interface, like a gui.
 ## Guide
 
 You will need Python: https://www.python.org/
-Also you need the pyttsx3 extension: command line "pip install pyttsx3"
