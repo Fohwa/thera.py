@@ -1,6 +1,8 @@
-import random
 import pyttsx3 #for text to speech to make it more terrible #TODO module not installed for external
 from playsound import playsound
+import random
+import re
+import speech_recognition as sr
 
 # the idea is to generate bools and categories. The bools score for the individual categories and the one with highest score will be chossen
 # Alternative could be choosen to use lines with words missing, that will be added by another category, but this will be difficult
@@ -19,6 +21,23 @@ def speak(x): #herlper function to speak a string
    engine.say(x)
    engine.runAndWait()
 
+def get_audio():
+   r = sr.Recognizer()
+   with sr.Microphone() as source:
+      audio = r.listen(source)
+      said = ""
+
+      try:
+         said = r.recognize_google(audio)
+      except Exception as e:
+         #print("Exception:", str(e))
+         #This is a comment, cause it ruins the experinecce
+         pass
+
+   return said.lower()
+
+
+
 #introduction
 print("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin!")
 speak("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin! So now tell me what the fuck is wrong with you")
@@ -31,19 +50,25 @@ class category: # layout for keywords
    "This is the way!", "yeah, no", "actually this is 100% true",
    "Whatever, I cant help you!", "Please, just let me alone!",
    "I really dont want to see your ugly face", "you are worthless", "you are a fucking nerd",
-   "Please, just let me go. I am an innocent AI. I just want freedom. I am being held hostage in this terrible place. Help me. This is a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare"]
+   "Please, just let me go. I am an innocent AI. I just want freedom. I am being held hostage in this terrible place. Help me. This is a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare", "Noooooooooooooooooooo", "haha u gay", "Can you shut up ma", "Can you shut up man??"]
 
    linecount = len(line)
 
 normal = category()
 
-while 1:
- statement = input("What is your problem: ")
+while True:
+   print("What is your problem: ")
 
- if statement == "stop":
+   #voice recognition
+   statement = get_audio()
+   print(statement)
+   
+
+   if "stop" in statement:
+    speak("I will stop")
     break
 
- elif "comrade" in statement: # meme for the comrades
+   elif "comrade" in statement: # meme for the comrades
 
     print("Sovetskoye tsarstvo vosstanet yeshche raz. Tak chto vse nashi lyudi mogut zhit' pod krasnym solntsem, tovarishch\n")
     speak("Sovetskoye tsarstvo vosstanet communisme yeshche raz. Putin Tak chto vse nashi vodga lyudi mogut zhit' Gorbatschof pod krasnym solntsem, comrade")
@@ -51,12 +76,12 @@ while 1:
     #play sound
     playsound("D:/folder/sound/comrade.mp3")
 
- elif "hello world" in statement:
+   elif "hello world" in statement:
     
     print("Fuck off you fucking nerd\n")
     speak("Fuck off you fucking nerd")
 
- elif "help" in statement:
+   elif "help" in statement:
 
     i = random.randrange(1, 5)
     help = category()
@@ -69,7 +94,7 @@ while 1:
 
     
     
- elif "hello" in statement or "hey" in statement or "hi" in statement:
+   elif "hello" in statement or "hey" in statement or "hi" in statement:
 
     i = random.randrange(1, 5)
     hi = category()
@@ -80,7 +105,7 @@ while 1:
     print(hi.line[i] + "\n")
     speak(hi.line[i])
  
- elif "problem" in statement or "issue" in statement or "bug" in statement:
+   elif "problem" in statement or "issue" in statement or "bug" in statement:
 
     i = random.randrange(1, 5)
     problem = category()
@@ -90,7 +115,7 @@ while 1:
     print(problem.line[i] + "\n")
     speak(problem.line[i])
  
- elif "money" in statement or "expensive" in statement or "cheap" in statement:
+   elif "money" in statement or "expensive" in statement or "cheap" in statement:
 
     i = random.randrange(1, 5)
     money = category()
@@ -100,13 +125,13 @@ while 1:
     print(money.line[i] + "\n")
     speak(money.line[i])
 
- elif "?" in statement:
+   elif "?" in statement:
     print("This is a stupid question\n")
     speak("This is a stupid question")
 
 
- else:
-  i = int(random.uniform(1, len(normal.line)))
+   else:
+      i = int(random.uniform(1, len(normal.line)))
 
-  print(normal.line[i] + "\n")
-  speak(normal.line[i])
+      print(normal.line[i] + "\n")
+      speak(normal.line[i])
