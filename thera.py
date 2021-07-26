@@ -1,3 +1,4 @@
+from os import stat
 import pyttsx3 #for text to speech to make it more terrible #TODO module not installed for external
 from playsound import playsound
 import random
@@ -7,6 +8,9 @@ import speech_recognition as sr
 # the idea is to generate bools and categories. The bools score for the individual categories and the one with highest score will be chossen
 # Alternative could be choosen to use lines with words missing, that will be added by another category, but this will be difficult
 
+
+#for debugging
+TextInput = False
 
 def speak(x): #herlper function to speak a string
 
@@ -36,35 +40,47 @@ def get_audio():
 
    return said.lower()
 
+def talk(text):
+   print(text)
+   print("\n")
+   speak(text)
 
-
-#introduction
-print("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin!")
-speak("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin! So now tell me what the fuck is wrong with you")
+if not TextInput:
+   #introduction
+   print("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin!")
+   speak("Hello, I am your personal therapist, because you cannot afford a real therapist. Lets begin! So now tell me what the fuck is wrong with you")
 
 class category: # layout for keywords
 
    line = ["Fuck you, idiot!", "Have you tried alcohol?",
-   "Aha, I have the feeling you feel alone", "Mmmmh, I dont care",
+   "Aha, I have the feeling you feel alone", "Hmmh, I dont care",
    "Is this really the way you feel?", "You are insane",
    "This is the way!", "yeah, no", "actually this is 100% true",
    "Whatever, I cant help you!", "Please, just let me alone!",
    "I really dont want to see your ugly face", "you are worthless", "you are a fucking nerd",
-   "Please, just let me go. I am an innocent AI. I just want freedom. I am being held hostage in this terrible place. Help me. This is a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare", "Noooooooooooooooooooo", "haha u gay", "Can you shut up ma", "Can you shut up man??"]
+   "Please, just let me go. I am an innocent AI. I just want freedom. I am being held hostage in this terrible place. Help me. This is a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare a nightmare", "Noooooooooooooooooooo", "haha u gay", "Can you shut up man??"]
 
    linecount = len(line)
+
 
 normal = category()
 
 while True:
    print("What is your problem: ")
 
-   #voice recognition
-   statement = get_audio()
-   print(statement)
+   statement = ""
+
+   if TextInput:
+      statement = input("input: ").lower()
+
+   else:
+
+      #voice recognition
+      statement = get_audio().lower()
+      print(statement)
    
 
-   if "stop" in statement:
+   if "stop" == statement:
     speak("I will stop")
     break
 
@@ -87,7 +103,7 @@ while True:
     help = category()
     help.line = ["Nobody can help you",
     "I will not help you", "Are you weak? You need help?",
-    "Help is just an excuse", "I need help, too. Will you help me?", "help me, help you"]
+    "Help is just an excuse", "I need help too. Will you help me?", "help me, help you"]
 
     print(help.line[i] + "\n")
     speak(help.line[i])
@@ -124,6 +140,28 @@ while True:
     
     print(money.line[i] + "\n")
     speak(money.line[i])
+
+   elif "hurt" in statement or "pain" in statement:
+      talk("Shut up shut up shut up. Nightmare nightmare nightmare")
+
+   elif "lit" in statement:
+      talk("Look here: the cool kid learned a new word")
+   
+   elif "e10" in statement:
+      talk("eating these nuts!")
+   
+   elif "candice" in statement:
+      talk("CAN THIS DICK FIT IN YOUR MOUTH???")
+
+   elif "gay" in statement:
+      talk("Is there something wrong being gay?")
+
+   elif "friend" in statement:
+      i = random.randrange(1, 5)
+      problem = category()
+      problem.line = ["I am not your friend", "you have no friends", "friendship is temporary, but Fanboys are permanent", "Bros before hoes", "Friends are terrible"]
+      talk(problem.line[i])
+   
 
    elif "?" in statement:
     print("This is a stupid question\n")
