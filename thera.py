@@ -10,7 +10,7 @@ import speech_recognition as sr
 
 
 #for debugging
-TextInput = False
+TextInput = True
 
 def speak(x): #herlper function to speak a string
 
@@ -162,6 +162,8 @@ while True:
       problem.line = ["I am not your friend", "you have no friends", "friendship is temporary, but Fanboys are permanent", "Bros before hoes", "Friends are terrible"]
       talk(problem.line[i])
    
+   elif "family" in statement:
+      talk("Dom Torreto?")
 
    elif "?" in statement:
     print("This is a stupid question\n")
